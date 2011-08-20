@@ -1,0 +1,58 @@
+//***************************************************************************************************
+//   Name: Array_classes.zen
+//   About: Array classes.
+//   Author: KingXerXes.
+//   License: Origin Development Studio <darklinkcompany@gmail.com>, 03 August 2011.
+//            This library is in the public domain and is provided without express or implied warranty.
+//            Permission to use, modify, or distribute the library for any purpose is hereby granted.
+//***************************************************************************************************
+
+ARRAYS = void
+INDEX = -1
+
+func new_Array(size, ...):
+    ARRAYS[INDEX++] = []
+    // initialization:
+    local i
+    with i = 0 while i < size step i++ loop
+        ARRAYS[INDEX++][i] = vargs(i)
+    return ARRAYS[INDEX]
+end
+
+func select_Array(x):
+    INDEX = x
+end
+
+func Show(Arr, ...):
+   local i
+   while i = 0 while i < tablelength(Arr) step i++ loop:
+      puts("Element N°"+i+" = "+Arr[i])
+   end
+   return Arr
+end
+
+func Add(Arr, x, ...):
+   local i
+   while i = 2 while i <= x+1 step i++ loop:
+      Arr[i] = vargs(i)
+   end
+   return Arr
+end
+
+func Get(Arr, e ...):
+   local i
+   while i = 2 while i <= e+1 step i++ loop:
+      puts("Element N°"+i+" = ")
+      Arr[i] = getint()
+   end
+   return Arr
+end
+
+func Array(op, ...):
+    ARRAYS[INDEX] = op(vargs(1),vargs(2),vargs(3))
+end
+
+a = new_Array(3, "hi,", " world!", " from:\n   Zen Programming Language!")
+Array::Show{void}
+
+

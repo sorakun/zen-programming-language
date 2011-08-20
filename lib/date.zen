@@ -1,0 +1,102 @@
+//***************************************************************************************************
+//   Name: date.zen
+//   About: Zen date access features.
+//   Author: kingxerxes.
+//   Last upadted: 10 August 2011.
+//   License: XerXeS <darklinkcompany@gmail.com>, 22 March 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//   Notes: none
+//***************************************************************************************************
+
+//***************************************************************************************************
+//   Defining constantes
+//   Note: Please do not modify these contants, because they are source-level related.
+//***************************************************************************************************
+
+
+DATE_ORDER_FIRST        =1;       /*  Values for date_order            */
+DATE_ORDER_YMD          =1;
+DATE_ORDER_DMY          =2;
+DATE_ORDER_MDY          =3;
+DATE_ORDER_LAST         =3;
+
+FLAG_N_SIGNED           =1;       /*  Number field flags               */
+FLAG_N_DECIMALS         =2;
+FLAG_N_LEFT             =4;
+FLAG_N_ZERO_FILL        =8;
+FLAG_N_ZERO_BLANK      =16;
+FLAG_N_THOUSANDS       =32;
+
+SIGN_NEG_TRAIL          =1;       /*  Number field formatting          */
+SIGN_ALL_TRAIL          =2;
+SIGN_NEG_LEAD           =3;
+SIGN_ALL_LEAD           =4;
+SIGN_FINANCIAL          =5;
+
+DECS_SHOW_ALL           =1;
+DECS_DROP_ZEROS         =2;
+DECS_HIDE_ALL           =3;
+DECS_SCIENTIFIC         =4;
+
+DATE_FORMAT_FIRST       =0;       /*  Date field formatting            */
+DATE_YMD_COMPACT        =0;
+DATE_YMD_DELIM          =1;
+DATE_YMD_SPACE          =2;
+DATE_YMD_COMMA          =3;
+DATE_YMD_LAST           =3;
+DATE_YM_COMPACT         =4;
+DATE_YM_DELIM           =5;
+DATE_YM_SPACE           =6;
+DATE_YM_LAST            =6;
+DATE_MD_COMPACT         =7;
+DATE_MD_DELIM           =8;
+DATE_MD_SPACE           =9;
+DATE_MD_LAST            =9;
+DATE_FORMAT_LAST        =9;
+
+FLAG_D_DD_AS_D          =1;       /*  Date field flags                 */
+FLAG_D_MM_AS_M          =2;
+FLAG_D_MONTH_ABC        =4;
+FLAG_D_CENTURY          =8;
+FLAG_D_UPPER           =16;
+FLAG_D_ORDER_YMD       =32;
+FLAG_D_ORDER_DMY       =64;
+FLAG_D_ORDER_MDY      =128;
+
+FLAG_T_HH_AS_H          =1;       /*  Time field flags                 */
+FLAG_T_MM_AS_M          =2;
+FLAG_T_SS_AS_S          =4;
+FLAG_T_CC_AS_C          =8;
+FLAG_T_COMPACT         =16;
+FLAG_T_12_HOUR         =32;
+
+BOOL_YES_NO             =0;       /*  Boolean field formatting         */
+BOOL_Y_N                =1;
+BOOL_TRUE_FALSE         =2;
+BOOL_T_F                =3;
+BOOL_1_0                =4;
+
+//***************************************************************************************************
+//   Defining constantes
+//   Note: Weeks, Months and Seasons starts from 1 (index) not 0, that why index 0 is an empty String
+//***************************************************************************************************
+
+Week_FR = ["", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"]
+Week_EN = ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+Week_SP = ["", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+Week_DE = ["", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sonntag"]
+
+Months_FR = ["", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+Months_EN = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+Months_SP = ["", "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+Months_DE = ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+
+Seasons_FR = ["", "Printemps", "Eté", "Automne", "hiver"]
+Seasons_EN = ["", "Spring", "Summer", "Autumn", "Winter"]
+Seasons_SP = ["", "la primavera", "el verano", "el otoño", "el invierno"]
+Seasons_DE = ["", "Frühling", "Sommer", "Herbst", "Winter"]
+
+//***************************************************************************************************
+//   Defining functions
+//***************************************************************************************************

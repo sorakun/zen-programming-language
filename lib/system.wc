@@ -1,0 +1,22 @@
+/*
+ * Terminate program
+ *
+ * Terminates the program and returns its int argument as
+ * the program's exit status.
+*/
+ 
+/*
+ * Get environment value
+ *
+ * Tries to get the value of the given environment variable. Returns
+ * the value as a string on success, or void on failure.
+*/ 
+
+/*
+ * Execute system command
+ *
+ * Hands off the command given as the first argument to the system's
+ * command interpreter. Returns the exit code of the command on
+ * success, or void on failure.
+*/
+

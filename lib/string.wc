@@ -1,0 +1,134 @@
+
+/*
+ * Length of a string
+ *
+ * This function returns the length of a string as an int.
+*/
+
+func String_GetLength(str):
+   if (type(str) != "str") then
+      throw "Invalid Parameter in String_GetLength, 'str' expected but '"+type(str)+"' found."
+   else 
+      return String_GetLength(str)
+end
+
+//Find the number of occurence of a char in a string
+func findcountc(FindIn,LookFor){
+    a = []
+    i = j = 0
+    for (i=0;i<= String_GetLength(FindIn)-1;i++):
+        if (LookFor == strID(FindIn,i)) then
+            j+=1;
+    end
+    return j
+end
+
+/*
+ * Concatenate strings
+ * nstr is the number of the given strings as parameters.
+*/
+</
+function String_Concat(nstr, ...):
+   var str = "";
+   for(i = 1; i<= nstr; i++)
+      str += vargs(i);
+   return str;
+end
+/>
+/*
+ * Position of first occurence of character in string
+ *
+ * This function uses the first character of the second argument
+ * as the character to search for. It returns nil if the character
+ * is not found.
+*/
+</
+function String_Get1stCharPos(str, char):
+  
+  var i = 0;
+   keep = 1;
+   while(keep):
+      if String
+   end
+
+end
+/> 
+/*
+ * Position of last occurence of character in string
+ *
+ * This function uses the first character of the second argument
+ * as the character to search for. It returns nil if the character
+ * cannot be found.
+*/
+
+/*
+ * Return position of substring
+ *
+ * This function returns the position of the second argument inside
+ * the first argument. It returns nil if the substring is not found
+ * and 0 if the substring is an empty string.
+*/
+
+/*
+ * Extract substring
+ *
+ * If called with two arguments (string, int), this function returns
+ * the substring starting at the indicated position. If called with
+ * a third int argument, the third argument specifies the maximum
+ * length of the returned substring.
+*/
+ 
+/*
+ * Extract left part of string
+ *
+ * This function returns a given number of characters from the
+ * beginning of a string.
+*/
+
+/*
+ * Extract right part of string
+ *
+ * This function returns a given number of characters from the
+ * end of a string.
+*/
+
+/*
+ * Convert string to lower case
+*/
+
+/*
+ * Convert string to upper case
+*/
+
+/*
+ * Check string for specified property
+*/
+
+/*
+ * Test string for being alpha-numeric
+*/
+
+/*
+ * Test string for being alphabetical
+*/
+
+/*
+ * Test string for being control characters only
+*/
+
+/*
+ * Test string for being digits only
+*/
+
+/*
+ * Test string for being lower-case only
+*/
+ 
+/*
+ * Test string for being upper-case only
+*/ 
+
+/*
+ * Test string for being hexadecimal digits only
+*/
+

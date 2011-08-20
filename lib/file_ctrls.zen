@@ -1,0 +1,23 @@
+
+/*
+ * Remove file
+ *
+ * This function tries to remove the given filename from the system.
+ * It returns true on success and false on failure.
+*/
+
+/*
+ * Rename file
+ *
+ * This functions tries to rename the file given as the first
+ * argument to the name given as the second argument. It returns
+ * true on success and false on failure.
+*/
+
+/*
+ * Get character from file
+*/
+
+/*
+ * Get line from file
+*/

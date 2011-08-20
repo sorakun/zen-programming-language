@@ -1,0 +1,39 @@
+/*
+ * Create struct from parameter values
+*/
+
+/*
+ * Delete value from struct
+ *
+ * This function the field with the given name from the struct
+ * and returns the resulting struct.
+*/
+
+/*
+ * Get field from struct
+*/
+
+/*
+ * Set field in struct
+*/
+
+/*
+ * Get names of structure elements of some type
+*/
+
+/*
+ * Check for element with specific type
+*/
+
+/*
+ * Check field existence
+ *
+ * Returns true if the given field name exists in the given struct.
+*/
+
+/*
+ * Merge multiple structs
+ *
+ * Returns a structure with all fields from the input structures. If
+ * a field occurs multiple times, the value from last structure wins.
+*/

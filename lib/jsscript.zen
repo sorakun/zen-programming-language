@@ -1,0 +1,8 @@
+
+func Message_Show(msg):
+   x = 'alert("'+msg+'");';
+   puts(x);
+   return x;
+end
+
+

@@ -1,0 +1,212 @@
+//***************************************************************************************************
+//   Name: types.ds
+//   About: DreamScript data-types functions
+//   Author: XerXes911.
+//   License: XerXes911 <darklinkcompany@gmail.com>, 22 March 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//   Notes: 
+//***************************************************************************************************
+
+require math;
+require array_ctrls;
+require string;
+
+//***************************************************************************************************
+//   Defining constantes
+//   Note: Please do not modify these contants, because they are source-level related.
+//***************************************************************************************************
+
+CONSOLE_PLAIN           =1;       /*  Print as requested               */
+CONSOLE_DATETIME        =2;       /*  Prefix with date and time        */
+CONSOLE_TIME            =3;       /*  Prefix with time only            */
+CONSOLE_DEBUG = 0;                /*  Datetime, fully flushed to disk  */
+
+//***************************************************************************************************
+//   Defining functions
+//***************************************************************************************************
+
+// str[ID] because it don't work in CST
+function strID(str, ID):
+   return strsub(str, ID, ID);
+end
+
+function setStrID(str, ID, str2):
+
+   if(ID == 0)
+      return str2+strsub(str, ID+1, String_GetLength(str)-1);
+   else if(ID == String_GetLength(str)-1)
+      return strsub(str, 0, ID-1)+str2;
+   else	
+      return strsub(str, 0, ID-1)+str2+strsub(str, ID+1, String_GetLength(str)-1);
+end
+
+
+
+
+// prints a table, taken from the copyt.ds example
+def Table_Put(t)
+{
+	put("[");
+	for (i=0; i<Table_GetLength(t); i++)
+	{
+		if (type(t[i])=="table")
+			Table_Put(t[i]);
+		else
+			put(t[i]);
+		if (i<Table_GetLength(t)-1)
+			put(",");
+	}
+	put("]");
+}
+
+// String to table converter
+def Table_FromString(s){
+    arr = [];
+    for (i=0;i<= String_GetLength(s)-1;i++){
+        arr[i] = strID(s,i);
+    }
+    return arr;
+}
+
+//table to string converter
+def String_FromTable(arr){
+    str = "";
+    for(i=0;i<= Table_GetLength(arr)-1;i++){
+        str+=arr[i];
+    }
+    return str;
+}
+
+//Finds a char in a string, and returns a Table
+def findc(FindIn,LookFor){
+    a = [];
+    i=0; j=0;
+    for (i=0;i<= String_GetLength(FindIn)-1;i++){
+        if (LookFor == strID(FindIn,i)){
+            a[j] = i;
+            j+=1;
+        }
+    }
+    return a;
+}
+
+/*
+
+def finds(FindIn,LookFor){
+    a = [];
+    tempa = [];
+    i=0; j=0;
+    strarray = [];
+    while(i<= String_GetLength(LookFor)){
+        tempstr += strID(FindIn,i);
+        if(i/3 == String_GetLength(LookFor)){
+           tempa[j] = tempstr;
+           j++;
+           tempstr = "";
+        }
+    i++;
+    }
+
+    for (i=0;i<= j;i++){
+        if (LookFor == strID(FindIn,i)){
+            a[j] = i;
+            j+=1;
+        }
+    }
+    return a;
+}
+
+*/
+
+/* DATA types convertion */
+
+// get a char and return it's int value
+def getintof(c)
+{
+    switch (c)
+    {    
+       if (c == "0") return 0; 
+       else if ( c== "1") return 1; 
+       else if ( c== "2") return 2; 
+       else if ( c== "3") return 3; 
+       else if ( c== "4") return 4; 
+       else if ( c== "5") return 5; 
+       else if ( c== "6") return 6; 
+       else if ( c== "7") return 7; 
+       else if ( c== "8") return 8; 
+       else if ( c== "9") return 9; 
+       else return nil;
+    }
+}
+
+//int/float -> str
+def str(x){
+    return ""+x;
+}
+
+// str/float to int
+def int(x){
+    if (type(x) == "int"){
+        return x;
+    }
+    else if (type(x) == "float"){
+        x = str(x);
+        myint = 0;
+        p = 1;
+        j = 0;
+        a = findc(x,".");
+        for(i=a[0]-1;i>=0;i--){
+             p = power(10,j);
+             j++;
+             myint += p*getintof(strID(x,i));
+        }
+        return myint;
+    }
+    else if (type(x) == "str"){
+        myint = 0;
+        p = 0;
+        j = 0;
+        for(i=String_GetLength(x)-1;i>=0;i--){
+            if(getintof(strID(x,i)) == nil){
+                throw "Can't convert an alphabet '"+strID(x,i)+"'to int.";
+                break;
+            }
+            else{
+                p = power(10,j);
+                j++;
+                myint += p*getintof(strID(x,i));
+            }
+        }
+        return myint;
+    }
+    else throw "Invalid type '"+type(x)+"'";
+}
+
+// int, str -> float
+
+def float(x){
+    if(type(x) = "float")
+        return x;
+    else if (type(x) == "integer")
+        return x+0.0;
+    else if (type(x) == "str"){
+        myint = 0.0;
+        p = 1;
+        j = 0;
+        a = findc(x,".");
+        for(i=a[0]-1;i>=0;i--){
+             p = power(10,j);
+             j++;
+             myint += p*getintof(strID(x,i));
+        }
+        j=-1;
+        for(i= a[0]+1; i<= String_GetLength(x)-1;i++){
+             p = power(10,j);
+             j--;
+             myint += p*getintof(strID(x,i));
+        }
+    return myint;
+    }
+}
+

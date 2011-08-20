@@ -1,0 +1,112 @@
+//***************************************************************************************************
+//   Name: array_ctrls.zen
+//   About: Zen Array control library.
+//   Author: XerXeS.
+//   Last upadted: 17 July 2011.
+//   License: XerXeS <darklinkcompany@gmail.com>, 22 March 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//   Notes: none
+//***************************************************************************************************
+
+/*
+ * Create array from parameter values
+*/
+
+func new_Array():
+   return []
+end
+
+/*
+ * Quicksort
+ *
+ * This function sorts a numerically indexed array based on the
+ * contained values.
+*/ 
+
+func Array_Sort():
+
+end
+
+/* 
+   Bubble sort is the slowest sort for an unsorted table.
+   But it is the fastest for a sorted table. 
+*/
+
+func bubblesort(a):
+    isFine;
+    do:
+        isFine = 1;
+        for(i=0;i<tablelength(a)-1; i++):
+            if(a[i] > a[i+1]):
+                a = arrayexchange(a, i, i+1)
+                isFine = 0
+            end
+        end
+    end while(!isFine);
+    return a;
+end
+
+/*
+ * Check if sorted
+ *
+ * This function returns true if the argument array is sorted.
+*/
+
+func Array_isSorted():
+
+end
+
+/*
+ * Delete value from array
+ *
+ * This function removes the value at the given index from the
+ * array and returns the resulting array.
+*/
+
+func Array_DelItem():
+
+end
+
+/*
+ * Compact array
+ *
+ * Removes all void values from the given array and returns an
+ * array of the remaining values.
+*/
+
+func Array_Compact():
+
+end
+
+/*
+ * Search for element
+ *
+ * Returns the index of the element in the array, or void if the element
+ * is not found.
+*/
+
+func Array_Find():
+
+end
+
+/*
+ * Merge multiple arrays
+ *
+ * Returns a new array with the values from all input arrays.
+*/
+
+func Array_Contcat():
+
+end
+
+/*
+ * Reverse array
+ *
+ * Reverses the order of the elements in the given array and returns
+ * the reversed array.
+*/
+
+func Array_Reserve():
+
+end

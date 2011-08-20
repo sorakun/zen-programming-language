@@ -1,0 +1,22 @@
+This is the Azure 0.1.
+
+What Azure is
+------------
+Azure is a featherweight yet powerful language designed for both embedding
+and stand-alone purposes. Azure is compact and requires little resource.
+It is written in ANSI C, and compiles on many common platforms. It has many
+useful features like dynamic typing and garbage collection. For a detailed
+description of Azure, refer to the documents in the doc directory. Azure is
+very young and still under rapid development, please keep a close eye on the
+next release for more exciting new features!
+
+
+Installation
+------------
+Azure can be easily installed on different platforms. For the information of a
+specific platform, please refer to INSTALL in the same directory.
+
+Contacting the authors
+------------
+Azure's authors welcome any constructive suggestions, criticisms, and bug
+reports. The authors can be reached at azure.lang@gmail.com.

@@ -1,0 +1,551 @@
+//***************************************************************************************************
+//   Name: htmldoc
+//   About: Allow making HTML documents, in CrystalScript. 
+//   Author: XerXes.
+//   License: XerXes <darklinkcompany@gmail.com>, 30 April 2011.  This library: in the public
+//            domain and: provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose: hereby granted.
+//   Notes: None.
+//***************************************************************************************************
+
+//***************************************************************************************************
+//   HTML File
+//***************************************************************************************************
+
+func HTML_File_Create(path):
+   file = File_Open(path, "w+");
+   return file;
+end
+
+func HTML_File_Close(file):
+   File_Close(file);
+end   
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   HTML Tag
+//***************************************************************************************************
+
+func HTML_Create(file):
+   File_Put(file, '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"'+"\n"+'"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'+"\n"+'<HTML>');
+end    
+
+func HTML_Close(file):
+   File_Put(file, "</HTML>");
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   TITLE Tag
+//***************************************************************************************************
+
+func HTML_SetTitle(file, title):
+   stri = "<HEAD><TITLE>"+title+"</TITLE></HEAD>\n";
+   File_Put(file, stri);
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   BODY Tag
+//***************************************************************************************************
+
+func HTML_CreateBody(file):
+   File_Put(file, "<body>\n");
+end     
+
+func HTML_CloseBody(file):
+   File_Put(file, "</body>\n");
+end   
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   BR Tag and custom tags
+//***************************************************************************************************  
+
+func HTML_AddLine(file, stri):
+   File_Put(file, stri); 
+end
+
+func HTML_LineJump(file):
+   File_Put(file, "<br>\n");
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Paragraph and Font Tag
+//***************************************************************************************************  
+
+func HTML_Text(name):
+   text = [];
+   text.text = "";
+   text.id = name;
+   text.face = "";
+   text.size = "";
+   text.color = "";
+   text.italic = 0;
+   text.underlined = 0;
+   text.bold = 0;
+   text.align = "left";
+   return text;
+end
+
+func HTML_Paragraph(name):
+   p = []; 
+   p.name = name;
+   p.align = "left"; 
+   p.text = "";
+   return p;
+end
+
+func Paragraph_AddText(p, text):
+   stri = '<SPAN>';
+   if(text.italic != 0)
+      stri += '<I>';
+   if(text.underlined != 0)
+      stri += '<U>';
+   if(text.bold != 0)
+      stri += '<B>';
+   stri += '<FONT';
+   if(text.face != "")
+      stri += ' FACE = "'+text.face+'"';
+   if(text.size != "")
+      stri += ' SIZE = "'+text.size+'"';
+   if(text.color != "")
+      stri += ' COLOR = "'+text.color+'"';
+
+   stri += '>'+text.text+'</FONT>';
+   if(text.italic != 0)
+      stri += '</I>';
+   if(text.underlined != 0)
+      stri += '</U>';
+   if(text.bold != 0)
+      stri += '</B>';
+   stri += "</SPAN>";
+   p.text += stri;
+   return p;
+end
+
+func HTML_AddParagraph(doc, p):
+   stri = '<P';
+   if(p.name != "")
+      stri += ' ID = "'+p.name+'"'; 
+   stri += ' ALIGN = "'+p.align+'">'+p.text+"</P>\n";
+   File_Put(doc, stri);
+end
+
+func HTML_AddText(file, text):
+   stri = '<P align = "'+text.align+'">';
+   if(text.italic != 0)
+      stri += '<I>';
+   if(text.underlined != 0)
+      stri += '<U>';
+   if(text.bold != 0)
+      stri += '<B>';
+   stri += '<FONT';
+
+   if(text.id != "")
+      stri += ' ID = "'+text.id+'"';
+   if(text.face != "")
+      stri += ' FACE = "'+text.face+'"';
+   if(text.size != "")
+      stri += ' SIZE = "'+text.size+'"';
+   if(text.color != "")
+      stri += ' COLOR = "'+text.color+'"';
+
+   stri += '>'+text.text+'</FONT>';
+   if(text.italic != 0)
+      stri += '</I>';
+   if(text.underlined != 0)
+      stri += '</U>';
+   if(text.bold != 0)
+      stri += '</B>';
+   stri += "</P>\n";
+
+   File_Put(file, stri);
+end 
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Button Tag
+//*************************************************************************************************** 
+
+func HTML_Button(name, value):
+   bit = [];
+   bit.size = 10;
+   bit.name = name;
+   bit.type = "button";
+   bit.value = value;
+   bit.align = "";
+   bit.enabled = 1;
+   bit.align = "left";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   return bit;
+end
+
+func HTML_SubmitButton(name, value):
+   bit = [];
+   bit.name = name;
+   bit.type = "submit";
+   bit.value = value;
+   bit.align = "";
+   bit.enabled = 1;
+   bit.align = "left";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   return bit;
+end
+
+func HTML_ResetButton(name, value):
+   bit = [];
+   bit.name = name;
+   bit.type = "reset";
+   bit.value = value;
+   bit.align = "";
+   bit.enabled = 1;
+   bit.align = "left";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   return bit;
+end
+
+func HTML_AddButton(file, bit):
+
+   stri = '<INPUT TYPE = "'+bit.type+'"  ALIGN = "'+bit.align+'" NAME = "'+bit.name+'" VALUE = "'+bit.value+'" SIZE = "'+bit.size+'"';
+
+   if (bit.enabled == 0)
+      stri = stri +' DISABLED = "disabled"';
+
+   if(bit.onblur != "")
+      stri += ' onblur = "'+bit.onblur+'"';
+
+   if(bit.onclick != "")
+      stri += ' onclick = "'+bit.onclick+'"';
+
+   if(bit.ondblclick != "")
+      stri += ' ondblclick = "'+bit.ondblclick+'"';
+
+   if(bit.onfocus != "")
+      stri += ' onfocus = "'+bit.onfocus+'"';
+
+   if(bit.onmousedown != "")
+      stri += ' onmousedown = "'+bit.onmousedown+'"';   
+
+   if(bit.onmousemove != "")
+      stri += ' onmousemove = "'+bit.onmousemove+'"';
+
+   if(bit.onmouseout != "")
+      stri += ' onmouseout = "'+bit.onmouseout+'"';      
+
+   if(bit.onmouseover != "")
+      stri += ' onmouseover = "'+bit.onmouseover+'"';
+
+   if(bit.onmouseup != "")
+      stri += ' onmouseup = "'+bit.onmouseup+'"';
+
+   if(bit.onkeydown != "")
+      stri += ' onkeydown = "'+bit.onkeydown+'"';
+
+   if(bit.onkeypress != "")
+      stri += ' onkeypress = "'+bit.onkeypress+'"';
+
+   if(bit.onkeyup != "")
+      stri += ' onkeyup = "'+bit.onkeyup+'"';
+
+   stri += ">\n";   
+   File_Put(file, stri);
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Input Tag
+//*************************************************************************************************** 
+
+func HTML_InputField(name):
+   bit = [];
+   bit.align = "left";
+   bit.disabled = 0;
+   bit.maxlength = 30;
+   bit.name = name;
+   bit.readonly = 0;
+   bit.size = 0;
+   bit.value = "";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   bit.onselect = "";
+   return bit;
+end
+
+func HTML_AddInputField(file, bit):
+
+   stri = '<INPUT TYPE = "TEXT" ALIGN="'+bit.align+'" NAME = "'+bit.name+'" VALUE = "'+bit.value+'" SIZE = "'+bit.size+'"';
+
+   if (bit.enabled == 0)
+      stri +=' DISABLED = "disabled"';
+   if (bit.readonly != 0)
+      stri += ' READONLY = "readonly"';
+   if(bit.onblur != "")
+      stri += ' onblur = "'+bit.onblur+'"';
+   if(bit.onclick != "")
+      stri += ' onclick = "'+bit.onclick+'"';
+   if(bit.ondblclick != "")
+      stri += ' ondblclick = "'+bit.ondblclick+'"';
+   if(bit.onfocus != "")
+      stri += ' onfocus = "'+bit.onfocus+'"';
+   if(bit.onmousedown != "")
+      stri += ' onmousedown = "'+bit.onmousedown+'"';   
+   if(bit.onmousemove != "")
+      stri += ' onmousemove = "'+bit.onmousemove+'"';
+   if(bit.onmouseout != "")
+      stri += ' onmouseout = "'+bit.onmouseout+'"';      
+   if(bit.onmouseover != "")
+      stri += ' onmouseover = "'+bit.onmouseover+'"';
+   if(bit.onmouseup != "")
+      stri += ' onmouseup = "'+bit.onmouseup+'"';
+   if(bit.onkeydown != "")
+      stri += ' onkeydown = "'+bit.onkeydown+'"';
+   if(bit.onkeypress != "")
+      stri += ' onkeypress = "'+bit.onkeypress+'"';
+   if(bit.onkeyup != "")
+      stri += ' onkeyup = "'+bit.onkeyup+'"';
+   if(bit.onselect != "")
+      stri += ' onselect = "'+bit.onkeyup+'"';
+   stri += ">\n";   
+   File_Put(file, stri);
+end
+
+//***************************************************************************************************
+
+//***************************************************************************************************
+//   Form Tag
+//*************************************************************************************************** 
+
+func HTML_Form(name):
+   form = [];
+   form.name = name;
+   form.action = "";
+   form.accept = "";
+   form.charset= "";
+   form.enctype = "";
+   form.method = "";
+   form.target = "";
+   form.onclick =""; form.ondblclick = ""; form.onmousedown = "";
+   form.onmousemove= "";  form.onmouseout=""; form.onmouseover=""; form.onmouseup="";  form.onkeydown="";  
+   form.onkeypress=""; form.onkeyup = ""; form.onreset = ""; form.onsubmit = "";
+   return form;
+end  
+
+func HTML_AddForm(file, form):
+   stri = '<FORM NAME = "'+form.name+'"';
+   if(form.action != "")
+      stri += ' ACTION = "'+form.action+'"';
+   if(form.accept != "")
+      stri += ' ACCEPT = "'+form.accept+'"';
+   if(form.charset != "")
+      stri += ' ACCEPT-CHARSET = "'+form.charset+'"';
+   if(form.enctype != "")
+      stri += ' ENCTYPE = "'+form.enctype+'"';
+   if(form.method != "")
+      stri += ' METHOD = "'+form.method+'"';
+   if(form.target != "")
+      stri += ' TARGET = "'+form.target+'"';
+   if(form.onclick != "")
+      stri += ' onclick = "'+form.onclick+'"';
+   if(form.ondblclick != "")
+      stri += ' ondblclick = "'+form.ondblclick+'"';
+   if(form.onmousedown != "")
+      stri += ' onmousedown = "'+form.onmousedown+'"';
+   if(form.onmousemove != "")
+      stri += ' onmousemove = "'+form.onmousemove+'"';
+   if(form.onmouseout != "")
+      stri += ' onmouseout = "'+form.onmouseout+'"';
+   if(form.onmouseover != "")
+      stri += ' onmouseover = "'+form.onmouseover+'"';
+   if(form.onmouseup != "")
+      stri += ' onmouseup = "'+form.onmouseup+'"';
+   if(form.onkeydown != "")
+      stri += ' onkeydown = "'+form.onkeydown+'"';      
+   if(form.onkeypress != "")
+      stri += ' onkeypress = "'+form.onkeypress+'"';
+   if(form.onkeyup != "")
+      stri += ' onkeyup = "'+form.onkeyup+'"';
+   if(form.onreset != "")
+      stri += ' onreset = "'+form.onreset+'"';
+   if(form.onsubmit != "")
+      stri += ' onsubmit = "'+form.onsubmit+'"';
+   stri += ">\n";
+   File_Put(file, stri);
+end;  
+
+func HTML_CloseForm(file): 
+   File_Put(file, "</FORM>\n");
+end;  
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Checkbox Tag
+//*************************************************************************************************** 
+
+func HTML_CheckBox(name):
+   bit = [];
+   bit.align = "";
+   bit.disabled = 0;
+   bit.checked = 0;
+   bit.name = name;
+   bit.readonly = 0;
+   bit.size = 0;
+   bit.value = "";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   bit.onselect = "";
+   return bit;
+end
+
+func HTML_AddCheckBox(file, bit):
+
+   stri = '<INPUT TYPE = "CHECKBOX" NAME = "'+bit.name+'" VALUE = "'+bit.value+'" SIZE = "'+bit.size+'"';
+   if(bit.checked != 0)
+      stri += ' CHECKED = "checked"';
+   if(bit.align != "")
+      stri += ' ALIGN = "'+bit.align+'"';
+   if (bit.enabled == 0)
+      stri +=' DISABLED = "disabled"';
+   if (bit.readonly != 0)
+      stri += ' READONLY = "readonly"';
+   if(bit.onblur != "")
+      stri += ' onblur = "'+bit.onblur+'"';
+   if(bit.onclick != "")
+      stri += ' onclick = "'+bit.onclick+'"';
+   if(bit.ondblclick != "")
+      stri += ' ondblclick = "'+bit.ondblclick+'"';
+   if(bit.onfocus != "")
+      stri += ' onfocus = "'+bit.onfocus+'"';
+   if(bit.onmousedown != "")
+      stri += ' onmousedown = "'+bit.onmousedown+'"';   
+   if(bit.onmousemove != "")
+      stri += ' onmousemove = "'+bit.onmousemove+'"';
+   if(bit.onmouseout != "")
+      stri += ' onmouseout = "'+bit.onmouseout+'"';      
+   if(bit.onmouseover != "")
+      stri += ' onmouseover = "'+bit.onmouseover+'"';
+   if(bit.onmouseup != "")
+      stri += ' onmouseup = "'+bit.onmouseup+'"';
+   if(bit.onkeydown != "")
+      stri += ' onkeydown = "'+bit.onkeydown+'"';
+   if(bit.onkeypress != "")
+      stri += ' onkeypress = "'+bit.onkeypress+'"';
+   if(bit.onkeyup != "")
+      stri += ' onkeyup = "'+bit.onkeyup+'"';
+   if(bit.onselect != "")
+      stri += ' onselect = "'+bit.onkeyup+'"';
+   stri += ">\n";   
+   File_Put(file, stri);
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Radiobutton Tag
+//*************************************************************************************************** 
+
+func HTML_RadioButton(name):
+   bit = [];
+   bit.align = "";
+   bit.disabled = 0;
+   bit.checked = 0;
+   bit.name = name;
+   bit.readonly = 0;
+   bit.size = 0;
+   bit.value = "";
+   bit.onblur = ""; bit.onclick =""; bit.ondblclick = ""; bit.onfocus = ""; bit.onmousedown = "";
+   bit.onmousemove= "";  bit.onmouseout=""; bit.onmouseover=""; bit.onmouseup="";  bit.onkeydown="";  bit.onkeypress=""; bit.onkeyup = "";
+   bit.onselect = "";
+   return bit;
+end
+
+func HTML_AddRadioButton(file, bit):
+   stri = '<INPUT TYPE = "RADIO" NAME = "'+bit.name+'" VALUE = "'+bit.value+'" SIZE = "'+bit.size+'"';
+
+   if(bit.checked != 0)
+      stri += ' CHECKED = "checked"';
+   if(bit.align != "")
+      stri += ' ALIGN = "'+bit.align+'"';
+   if (bit.enabled == 0)
+      stri +=' DISABLED = "disabled"';
+   if (bit.readonly != 0)
+      stri += ' READONLY = "readonly"';
+   if(bit.onblur != "")
+      stri += ' onblur = "'+bit.onblur+'"';
+   if(bit.onclick != "")
+      stri += ' onclick = "'+bit.onclick+'"';
+   if(bit.ondblclick != "")
+      stri += ' ondblclick = "'+bit.ondblclick+'"';
+   if(bit.onfocus != "")
+      stri += ' onfocus = "'+bit.onfocus+'"';
+   if(bit.onmousedown != "")
+      stri += ' onmousedown = "'+bit.onmousedown+'"';   
+   if(bit.onmousemove != "")
+      stri += ' onmousemove = "'+bit.onmousemove+'"';
+   if(bit.onmouseout != "")
+      stri += ' onmouseout = "'+bit.onmouseout+'"';      
+   if(bit.onmouseover != "")
+      stri += ' onmouseover = "'+bit.onmouseover+'"';
+   if(bit.onmouseup != "")
+      stri += ' onmouseup = "'+bit.onmouseup+'"';
+   if(bit.onkeydown != "")
+      stri += ' onkeydown = "'+bit.onkeydown+'"';
+   if(bit.onkeypress != "")
+      stri += ' onkeypress = "'+bit.onkeypress+'"';
+   if(bit.onkeyup != "")
+      stri += ' onkeyup = "'+bit.onkeyup+'"';
+   if(bit.onselect != "")
+      stri += ' onselect = "'+bit.onkeyup+'"';
+   stri += ">\n";   
+   File_Put(file, stri);
+end
+
+//****************************************************************************************************
+
+//***************************************************************************************************
+//   Image Tag
+//*************************************************************************************************** 
+/*
+func HTML_Image(name, src):
+   img = [];
+   img.name = name;
+   img.src = src;
+   img.text = "";
+   img.align = "left";
+   img.border = 0;
+   img.height = "";
+   img.widht = "";
+   img.hspace = 0;
+   img.ismap = 
+   return img;
+end
+
+func HTML_AddImage(file, img):
+   stri = '<IMG NAME = "'+img.name+'" SRC = "'+img.src+'"';
+   if(img.text != "")
+      stri += ' ALT = "'+img.text+'"';
+   if(img.border != 0)
+      stri += ' BORDER = "'+img.border+'"';
+   if(img.text != "")
+      stri += ' TEXT = "'+img.text+'"';
+   if(img.height != "") 
+      stri += ' HEIGHT = "'+img.height+'"';
+   if(img.width != "") 
+      stri += ' WIDTH = "'+img.width+'"';   
+   if(img.hspace != 0) 
+      stri += ' HSPACE = "'+img.hspace+'"';
+end
+*/
+   

@@ -1,0 +1,13 @@
+//***************************************************************************************************
+//   Name: zen.zen
+//   About: Zen utilities.
+//   Author: KingXerXes.
+//   Last upadted: 05 August 2011.
+//   License: Origin Software Studio <darklinkcompany@gmail.com>, 22 March 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//   Notes: none
+//***************************************************************************************************
+
+import "zen.utils"
+

@@ -1,0 +1,34 @@
+//***************************************************************************************************
+//   Name: console
+//   About: Graphical console controls.
+//   Author: KingXerXes.
+//   License: Origin Development Studio <darklinkcompany@gmail.com>, 03 August 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//***************************************************************************************************
+
+Console_Colors = []
+
+    Console_Colors.rootFg = Console_Colors.rootBg =
+    Console_Colors.borderFg = Console_Colors.borderBg =
+    Console_Colors.windowFg= Console_Colors.windowBg =
+    Console_Colors.shadowFg =  Console_Colors.shadowBg =
+    Console_Colors.titleFg =  Console_Colors.titleBg =
+    Console_Colors.buttonFg =  Console_Colors.buttonBg = 
+    Console_Colors.actButtonFg =  Console_Colors.actButtonBg = 
+    Console_Colors.checkboxFg =  Console_Colors.checkboxBg = 
+    Console_Colors.actCheckboxFg =  Console_Colors.actCheckboxBg = 
+    Console_Colors.entryFg =  Console_Colors.entryBg = 
+    Console_Colors.labelFg =  Console_Colors.labelBg = 
+    Console_Colors.listboxFg =  Console_Colors.listboxBg = 
+    Console_Colors.actListboxFg =  Console_Colors.actListboxBg = 
+    Console_Colors.textboxFg =  Console_Colors.textboxBg = 
+    Console_Colors.actTextboxFg =  Console_Colors.actTextboxBg = 
+    Console_Colors.helpLineFg =  Console_Colors.helpLineBg = 
+    Console_Colors.rootTextFg =  Console_Colors.rootTextBg = 
+    Console_Colors.emptyScale =  Console_Colors.fullScale = 
+    Console_Colors.disabledEntryFg =  Console_Colors.disabledEntryBg = 
+    Console_Colors.compactButtonFg =  Console_Colors.compactButtonBg = 
+    Console_Colors.actSelListboxFg =  Console_Colors.actSelListboxBg = 
+    Console_Colors.selListboxFg =  Console_Colors.selListboxBg = ""
+	

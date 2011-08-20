@@ -1,0 +1,36 @@
+//***************************************************************************************************
+//   Name: Array_classes
+//   About: Array classes.
+//   Author: KingXerXes.
+//   License: Origin Development Studio <darklinkcompany@gmail.com>, 03 August 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//***************************************************************************************************
+
+ARRAYS = void
+INDEX = -1
+
+func new_Array(size, ...):
+    ARRAYS[INDEX++] = []
+    // initialization:
+    with i = 0 while i < size step i++ loop
+        ARRAYS[INDEX++][i] = vargs(i)
+    return Arr
+end
+
+func Array_Show(Arr, ...):
+   while i = Table_GetSize() while i < tablelength(Arr) step i++ loop:
+      puts("Element N°"+i+" = "+Arr[i])
+   end
+   return Arr
+end
+
+func Array_Get(Arr, e, ...):
+   while i = Table_GetSize() while i < tablelength(Arr) step i++ loop:
+      puts("Element N°"+i+" = ")
+      Arr[i] = getint()
+   end
+   return Arr
+end
+
+

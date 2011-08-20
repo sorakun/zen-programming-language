@@ -1,0 +1,20 @@
+This document provides guidelines on how to build Zen binaries on several
+platforms.
+
+>> Microsfot Windows:
+This package comes along with a CodeBlocks workspace, which contains 2 projects,
+Zen for Windows, and Zen for Linux, just compile the Zen for Windows project,
+and everything shall workfine. If you wish to use your own IDE, then just 
+add all the files in the "src" directory and the sub-directories, except
+"adllin.c".
+
+>> Linux/Unix systems:
+This package comes along with a CodeBlocks workspace, which contains 2 projects,
+Zen for Windows, and Zen for Linux, just compile the Zen for Linux project,
+and everything shall workfine. If you wish to use your own IDE, then just 
+add all the files in the "src" directory and the sub-directories, except
+"adlwin.c".
+
+>> Apple MacOS X:
+Not tested, but should work fine by compiling the Linux version, and defining 
+"ZEN_MAC_OSX" in Zen.h

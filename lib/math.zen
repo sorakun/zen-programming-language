@@ -1,0 +1,143 @@
+//***************************************************************************************************
+//   Name: math
+//   About: Several small algorithms including: Fibonacci, Newton's iteration, and PI. 
+//   Author: XerXes911.
+//   License: XerXes911 <darklinkcompany@gmail.com>, 22 March 2011.  This library is in the public
+//            domain and is provided without express or implied warranty.  Permission to use, modify,
+//            or distribute the library for any purpose is hereby granted.
+//   Notes: none
+//***************************************************************************************************
+
+
+func abs(x):
+   if x > 0 then
+      return x
+   else return -x
+end
+
+//In range function
+func inside(i,a,b):
+    if ((i >= a) && (i <= b)) then
+        return 1
+    else
+        return 0
+}
+
+
+func factor(n):
+	if (n<0) then
+		return "Illegal input.";
+	if ((n==0) or (n==1)) then
+		return 1;
+	else
+		return n*factor(n-1)
+}
+
+
+def power(x,y)
+{
+   if (y == 1) then
+      return x
+   else
+      return x * power(x, y-1)
+}
+
+def nth_item(n)
+{
+	return power(-1.0,n+1)/((2*n-1)*power(3.0,n-1));
+}
+
+// Square root using newton's iteration algorithm. 
+def sqrt(n, iteration)
+{
+	ret = 1.0
+	for (i=0; i<iteration; i++)
+		ret = (ret+n/ret)/2
+	return ret
+}
+
+/* Calculate PI's value. */
+def pi(precision)
+{
+	for (ret=0.0, i=1; i<precision; i++)
+		ret += nth_item(i)
+	return ret*2*sqrt(3,20)
+}
+
+//Solve a second degree eq.
+def solve2nd(a,b,c):
+    aa = []
+    delta = (power(b,2))-4*(a*c)
+    if(delta > 0) then:
+        aa[0] = (-b-sqrt(delta))/(2*a)
+        aa[1] = (-b+sqrt(delta))/(2*a)
+    end
+    else if(delta ==0) then
+        aa[0] = (-b-sqrt(delta))/(2*a)
+		
+    return aa;
+end
+
+/*
+ * Compute natural logarithm
+*/
+
+/*
+ * Compute base-10 logarithm
+*/
+
+/*
+ * Compute square root
+*/ 
+
+/*
+ * Compute ceiling (rounding up)
+*/
+
+/*
+ * Compute floor (rounding down)
+*/
+
+/*
+ * Compute absolute value
+*/
+
+/*
+ * Compute sine
+ */
+ 
+ /*
+ * Compute cosine
+ */
+ 
+ /*
+ * Compute tangent
+ */
+ 
+ /*
+ * Compute arc-sine
+ */
+ 
+/*
+ * Compute arc-cosine
+ */
+ 
+ /*
+ * Compute arc-tangent
+ */
+ 
+/*
+ * Compute hyperbolic sine
+ */
+ 
+/*
+ * Compute hyperbolic cosine
+ */
+ 
+ /*
+ * Compute hyperbolic tangent
+ */
+ 
+ /*
+ * Compute absolute value of integer
+ */

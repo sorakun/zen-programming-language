@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Zen Programming Language For Linux" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="../bin/Zen" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin/" />
+				<Option object_output="Release" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-fomit-frame-pointer" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-Os" />
+					<Add option="-O3" />
+					<Add option="-O2" />
+					<Add option="-O1" />
+					<Add option="-O" />
+					<Add option="-W" />
+					<Add option="-fexceptions" />
+					<Add option="-DSFML_DYNAMIC" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-ldl" />
+					<Add library="sfl/libsfl-linux.a" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="../bin/Zen(debug)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../bin/" />
+				<Option object_output="Debug" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-W" />
+					<Add option="-fexceptions" />
+					<Add directory="../../../libraries/SFML-1.6/CSFML/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-ldl" />
+					<Add library="sfl/libsfl-linux.a" />
+				</Linker>
+			</Target>
+			<Target title="DLL">
+				<Option output="../bin/Zen" prefix_auto="1" extension_auto="1" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add directory="../../../libraries/SFML-1.6/CSFML/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-ldl" />
+					<Add library="sfl/libsfl-linux.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DDEBUGMODE" />
+		</Compiler>
+		<Linker>
+			<Add library="../../../libraries/SFML-1.6/CSFML/lib/libcsfml-audio.so.1.6" />
+			<Add library="../../../libraries/SFML-1.6/CSFML/lib/libcsfml-graphics.so.1.6" />
+			<Add library="../../../libraries/SFML-1.6/CSFML/lib/libcsfml-network.so.1.6" />
+			<Add library="../../../libraries/SFML-1.6/CSFML/lib/libcsfml-system.so.1.6" />
+			<Add library="../../../libraries/SFML-1.6/CSFML/lib/libcsfml-window.so.1.6" />
+		</Linker>
+		<Unit filename="aconsole.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aconsole.h" />
+		<Unit filename="acorelib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="acoroutine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="acoroutine.h" />
+		<Unit filename="adllin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aerror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aerror.h" />
+		<Unit filename="aexception.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aexception.h" />
+		<Unit filename="agc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="agc.h" />
+		<Unit filename="agen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="agen.h" />
+		<Unit filename="alex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alex.h" />
+		<Unit filename="alib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alib.h" />
+		<Unit filename="alibdate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alibio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alibmath.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alibstr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="alibsys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aparse.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aparse.h" />
+		<Unit filename="aregex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aregex.h" />
+		<Unit filename="atable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="atable.h" />
+		<Unit filename="autil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="autil.h" />
+		<Unit filename="avm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="avm.h" />
+		<Unit filename="lib/charlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/dirlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/filelib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/intlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib/systemlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/audiolib/audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/color.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/rect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/renderwindow.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/shape.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/sprite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/graphiclib/string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/systemlib/system.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libsfml/window/window.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="rec.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="sfl/aconvertion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sfl/adate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sfl/adir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sfl/afiles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sfl/types.h" />
+		<Unit filename="zen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="zen.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
