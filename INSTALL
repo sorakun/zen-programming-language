@@ -18,4 +18,4 @@ add all the files in the "src" directory and the sub-directories, except
 >> Apple MacOS X:
 Not tested, but should work fine by compiling the Linux version, and defining 
 "ZEN_MAC_OSX" in Zen.h
-If you want to help us trying Zen on MAC, please contact us.
+If you want to help us trying Zen on MAC, please contact us at younis.bensalah02@yahoo.de
