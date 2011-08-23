@@ -1,21 +1,38 @@
-This document provides guidelines on how to build Zen binaries on several
-platforms.
+###################################################################################
+############################### BUILDING GUIDELINES ###############################
+###################################################################################
 
->> Microsfot Windows:
-This package comes along with a CodeBlocks workspace, which contains 2 projects,
-Zen for Windows, and Zen for Linux, just compile the Zen for Windows project,
-and everything shall workfine. If you wish to use your own IDE, then just 
-add all the files in the "src" directory and the sub-directories, except
-"adllin.c".
 
->> Linux/Unix systems:
-This package comes along with a CodeBlocks workspace, which contains 2 projects,
-Zen for Windows, and Zen for Linux, just compile the Zen for Linux project,
-and everything shall workfine. If you wish to use your own IDE, then just 
-add all the files in the "src" directory and the sub-directories, except
-"adlwin.c".
 
->> Apple MacOS X:
-Not tested, but should work fine by compiling the Linux version, and defining 
-"ZEN_MAC_OSX" in Zen.h
-If you want to help us trying Zen on MAC, please contact us at younis.bensalah02@yahoo.de
+This document provides guidelines on how to build Zen binaries on several platforms.
+
+>>>	Windows :
+-----------------
+	++ This package comes along with a Code::Blocks workspace, which contains 2 projects:
+		Zen for Windows and Zen for Linux
+		Just compile the Zen for Windows project, and everything shall work fine.
+	++ If you want to use your own IDE, then just
+		add all the files in the "scr" directory and the sub-directories, except "adllin.c".
+
+>>>	GNU/Linux :
+-------------------
+	++ This package comes along with a Code::Blocks workspace, which contains 2 projects:
+		Zen for Windows and Zen for Linux
+		Just compile the Zen for Linux project, and everything shall work fine.
+	++ If you want to use your own IDE, then just
+		add all the files in the "scr" directory and the sub-directories, except "adlwin.c".
+
+>>>	MacOS :
+---------------
+	++ We didn't test it yet, but it should work fine by compiling the Zen for Linux version.
+	++ If you want to report a problem while trying to build it on a Mac,
+		or just want to help us providing cross-platform support,
+		please feel free to contact us at:
+			darklinkcompany@gmail.com
+			younis.bensalah02@yahoo.de
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################

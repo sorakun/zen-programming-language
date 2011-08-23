@@ -1,22 +1,36 @@
-Zen Programming Language,
+###################################################################################
+##################################### README ######################################
+###################################################################################
 
 
-What Zen is:
-------------
+
+Zen Programming Language
+
+
+>>> What Zen is:
+----------------
 Zen is a featherweight yet powerful language designed for both embedding
 and stand-alone purposes. Zen is compact and requires little resource.
-It is written in ANSI C, and compiles on many common platforms. It has many
-useful features like dynamic typing and garbage collection. For a detailed
-description of Zen, refer to the documents. Zen is
-very young and still under rapid development, please keep a close eye on the
-next release for more exciting new features!
+It's written in ANSI C, and compiles on most common platforms.
+It has many useful features like dynamic typing and garbage collection.
+For a detailed description of Zen, refer to the documents.
+Zen is very young and still under rapid development, please keep a close eye on the
+next release for more exciting new features.
 
-Installing Zen:
----------------
-Zen can be easily installed on different platforms. For the information of a
-specific platform, please refer to INSTALL in the same directory.
+>>> How do I install Zen:
+-------------------------
+Zen can be easily built on different platforms.
+For more information, please refer to the INSTALL notes in the same directory as this file.
 
-Contacting the authors:
------------------------
-Zen's authors welcome any constructive suggestions, criticisms, and bug
-reports. The authors can be reached at darklinkcompany[at]gmail[.]com
+>>> How can I contact the authors:
+----------------------------------
+Zen's authors welcome any constructive suggestions, criticisms, and bug reports.
+You can reach us on:
+	darklinkcompany@gmail.com
+	younis.bensalah02@yahoo.de
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################
